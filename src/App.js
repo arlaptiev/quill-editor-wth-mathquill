@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import EditorBlock from './EditorBlock'
 import './App.css';
 
+
 function App() {
+
+  const [HTMLvalue, setHTMLvalue] = React.useState('<p class="text-gray-500 italic">Submit to render..</p>')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app flex py-6">
+
+        <div className="flex-none w-1/2 p-4">
+          <p className="pb-2">Editor:</p>
+          <EditorBlock setHTMLvalue={setHTMLvalue}/>
+        </div>
+
+
+        <div className="w-1/2 flex-auto p-4">
+          <p className="pb-2">Display as HTML from Editor:</p>
+          <div className="display" dangerouslySetInnerHTML={{__html: HTMLvalue}}></div>
+        </div>
+
     </div>
   );
 }

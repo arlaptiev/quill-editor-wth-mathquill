@@ -6,7 +6,7 @@ const EditorBlock = (props) => {
   const editorRef = React.useRef(null);
 
   const submit = () => {
-    let editor = editorRef.current.reactQuill.current.editor
+    //let editor = editorRef.current.reactQuill.current.editor
     props.setHTMLvalue(editorRef.current.state.HTMLvalue)
   }
 
